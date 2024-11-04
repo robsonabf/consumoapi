@@ -1,0 +1,39 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>
+      CONSULTA CEP
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-toolbar color="secondary">
+  <ion-searchbar [(ngModel)]="cep" (ionInput)="buscar(cep)" show-clear-button="focus" placeholder="Pesquisar CEP"></ion-searchbar>
+  <ion-button expand="full" (click)="criarpost()" color="dark">Postar</ion-button>
+  <ion-button expand="full" (click)="deletar(1)" color="tertiary">Apagar</ion-button>
+  <ion-button expand="full" (click)="alterar(1)" color="success">Alterar</ion-button>
+  <ion-button expand="full" (click)="listar()" color="secondary">Listar</ion-button>
+  <ion-button expand="full" (click)="getAdote()" color="danger">GET ADOTE</ion-button>
+  </ion-toolbar>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Título</th>
+        <th>Corpo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let dado of dados">
+        <td>{{ dado.id }}</td>
+        <td>{{ dado.title }}</td>
+        <td>{{ dado.body }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <ion-list>
+    <ion-item *ngFor="let item of dados">
+      {{ item }}
+    </ion-item>
+  </ion-list>  
+</ion-content>
